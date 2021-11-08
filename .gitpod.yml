@@ -2,7 +2,7 @@ tasks:
   - name: npm part
     init: npm install
     # to wait a bit from mongo db start. Note: gp-await not possible here since db is long running
-    command: sleep 3 && pm run development
+    command: sleep 3 && npm run development
   - name: docker mongodb part
     init: docker pull mongo
     command: docker run -p 27017:27017 mongo
