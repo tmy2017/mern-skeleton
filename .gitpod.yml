@@ -1,4 +1,13 @@
+experimentalNetwork: true
+
+image: tmy2017/gitpod-pm:beta
+#image: 
+#  file: .gitpod.Dockerfile
+
+
 tasks:
+  - name: start phpstorm as default 
+    command: projector run PhpStormByIdeAutoinstall-2021.2
   - name: npm part MUST use as in package.json documented! 
     init: nvm install 13.12.0 && nvm use 13.12.0 && npm install
     # to wait a bit from mongo db start. Note: gp-await not possible here since db is long running
@@ -8,6 +17,12 @@ tasks:
     command: docker run -p 27017:27017 mongo
     openMode: split-right
 ports:
+  # open browser could be blocked by browser
+  - port: 19999
+    onOpen: open-browser
+  - port: 1000-9000
+    onOpen: ignore
+  # still applied even above implicitly says ignore! 
   - port: 3000
     visibility: private
     onOpen: open-preview
