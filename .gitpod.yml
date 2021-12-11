@@ -1,6 +1,6 @@
 experimentalNetwork: true
 
-image: tmy2017/gitpod-pm:beta
+image: tmy2017/gitpod-pm:ver-1639261350
 #image: 
 #  file: .gitpod.Dockerfile
 
